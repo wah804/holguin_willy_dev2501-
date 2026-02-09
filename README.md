@@ -1,16 +1,31 @@
-# React + Vite
+# Willy Holguin
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## DEV2501-O 01
+**Assignment:** Components
 
-Currently, two official plugins are available:
+This project is a one page React application that demonstrates the creation of reusable components using **CSS-in-JS** (`styled-components`) and **Dynamic Props**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Project Requirements
+- **No `useState`** (Stateless application)
+- **CSS-in-JS Only** (No external CSS files)
+- **Dynamic Text** (All text passed via props)
+- **Custom Components** (Header, PostCard, AdCard, etc.)
+- **Class Component** (Header & PostCard)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## How to Run
 
-## Expanding the ESLint configuration
+### 1. Install Dependencies
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+### 2. Start the App
+Run development server:
+```bash
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) to view the app.
