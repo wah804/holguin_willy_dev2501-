@@ -63,6 +63,8 @@ const ActionButton = styled.button`
     color: ${props => props.$type === 'delete' ? '#D90429' : '#2B2D42'};
   }
 `;
+
+//This should be a child component of Feed
 class PostCard extends Component {
   render() {
     const { avatar, username, title, description, image, editLabel, deleteLabel } = this.props;

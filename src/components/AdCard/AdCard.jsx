@@ -30,6 +30,7 @@ const AdSubtitle = styled.p`
   color: #8D99AE;
   font-size: 0.875rem;
 `;
+
 const AdCard = ({ image, title, subtitle }) => {
   return (
     <CardContainer>

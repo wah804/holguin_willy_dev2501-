@@ -43,6 +43,7 @@ const ButtonGroup = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
+
 const Form = ({ formTitle, titlePlaceholder, descPlaceholder, btnLabel }) => {
   return (
     <FormContainer>

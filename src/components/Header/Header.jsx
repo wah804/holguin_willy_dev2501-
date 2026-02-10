@@ -65,6 +65,8 @@ const IconWrapper = styled.div`
     color: #FFD700;
   }
 `;
+
+//Child component of App.jsx
 class Header extends Component {
   render() {
     const { appName, appNameSecondary, userAvatar, searchPlaceholder } = this.props;
