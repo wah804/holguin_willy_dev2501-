@@ -1,5 +1,5 @@
+import React from 'react';
 import styled from 'styled-components';
-
 const CardContainer = styled.div`
   background-color: white;
   border-radius: 8px;
@@ -41,5 +41,4 @@ const AdCard = ({ image, title, subtitle }) => {
     </CardContainer>
   );
 };
-
 export default AdCard;

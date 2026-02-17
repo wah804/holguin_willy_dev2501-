@@ -10,7 +10,7 @@ const StyledButton = styled.button`
   transition: background-color 0.2s ease, transform 0.1s ease;
   
   /* Variant styling */
-  background-color: ${props => props.$variant === 'secondary' ? '#FFD700' : '#004E98'}; /* Yellow or Blue */
+  background-color: ${props => props.$variant === 'secondary' ? '#FFD700' : '#004E98'};
   color: ${props => props.$variant === 'secondary' ? '#004E98' : '#FFFFFF'};
   border-bottom: 3px solid ${props => props.$variant === 'secondary' ? '#DA291C' : '#002855'};
   &:hover {

@@ -1,6 +1,6 @@
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import Button from '../Button/Button';
-
 const FormContainer = styled.div`
   background-color: white;
   padding: 20px;
@@ -14,9 +14,12 @@ const FormTitle = styled.h3`
 `;
 const InputGroup = styled.div`
   margin-bottom: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
 `;
 const StyledInput = styled.input`
-  width: 100%;
+  flex: 1;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -43,21 +46,82 @@ const ButtonGroup = styled.div`
   display: flex;
   justify-content: flex-end;
 `;
-const Form = ({ formTitle, titlePlaceholder, descPlaceholder, btnLabel }) => {
-  return (
-    <FormContainer>
-      <FormTitle>{formTitle}</FormTitle>
-      <InputGroup>
-        <StyledInput type="text" placeholder={titlePlaceholder} />
-      </InputGroup>
-      <InputGroup>
-        <StyledTextArea placeholder={descPlaceholder} />
-      </InputGroup>
-      <ButtonGroup>
-        <Button label={btnLabel} onClick={() => console.log('Post created')} />
-      </ButtonGroup>
-    </FormContainer>
-  );
-};
-
+const AvatarPreview = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+`;
+class Form extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: '',
+      description: ''
+    };
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.postToEdit && this.props.postToEdit !== prevProps.postToEdit) {
+      this.setState({
+        title: this.props.postToEdit.title,
+        description: this.props.postToEdit.description
+      });
+    }
+    if (prevProps.postToEdit && !this.props.postToEdit) {
+      this.setState({ title: '', description: '' });
+    }
+  }
+  handleSubmit = () => {
+    const { title, description } = this.state;
+    if (!title.trim() || !description.trim()) {
+      alert("Please fill in both title and description.");
+      return;
+    }
+    if (this.props.onSubmit) {
+      this.props.onSubmit({
+        title,
+        description,
+        username: "Willy Holguin", 
+        avatar: this.props.avatar, 
+        image: this.props.postToEdit ? this.props.postToEdit.image : null
+      });
+    }
+    if (!this.props.postToEdit) {
+      this.setState({ title: '', description: '' });
+    }
+  }
+  render() {
+    const { formTitle, titlePlaceholder, descPlaceholder, btnLabel, avatar, onCancel, postToEdit } = this.props;
+    const { title, description } = this.state;
+    return (
+      <FormContainer>
+        <FormTitle>{formTitle}</FormTitle>
+        <InputGroup>
+          {avatar && <AvatarPreview src={avatar} alt="User" />}
+          <StyledInput 
+            type="text" 
+            name="title"
+            placeholder={titlePlaceholder} 
+            value={title}
+            onChange={(e) => this.setState({ title: e.target.value })}
+          />
+        </InputGroup>
+        <InputGroup>
+          <StyledTextArea 
+            name="description"
+            placeholder={descPlaceholder} 
+            value={description}
+            onChange={(e) => this.setState({ description: e.target.value })}
+          />
+        </InputGroup>
+        <ButtonGroup>
+          {postToEdit && (
+             <Button label="Cancel" onClick={onCancel} style={{ marginRight: '10px', backgroundColor: '#8D99AE' }} />
+          )}
+          <Button label={btnLabel} onClick={this.handleSubmit} />
+        </ButtonGroup>
+      </FormContainer>
+    );
+  }
+}
 export default Form;

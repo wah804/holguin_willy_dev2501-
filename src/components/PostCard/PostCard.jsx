@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { FaEdit, FaTrash } from 'react-icons/fa';
-
 const Card = styled.div`
   background-color: white;
   border-radius: 8px;
@@ -63,31 +62,37 @@ const ActionButton = styled.button`
     color: ${props => props.$type === 'delete' ? '#D90429' : '#2B2D42'};
   }
 `;
-class PostCard extends Component {
-  render() {
-    const { avatar, username, title, description, image, editLabel, deleteLabel } = this.props;
-    return (
-      <Card>
-        <CardHeader>
-          <Avatar src={avatar} alt={username} />
-          <UserInfo>
-            <Username>{username}</Username>
-          </UserInfo>
-        </CardHeader>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
-        {image && <PostImage src={image} alt={title} />}
-        <Actions>
-          <ActionButton onClick={() => console.log('Edit clicked')} aria-label={editLabel}>
-            <FaEdit />
-          </ActionButton>
-          <ActionButton $type="delete" onClick={() => console.log('Delete clicked')} aria-label={deleteLabel}>
-            <FaTrash />
-          </ActionButton>
-        </Actions>
-      </Card>
-    );
-  }
-}
-
+const PostCard = ({ 
+  avatar, 
+  username, 
+  title, 
+  description, 
+  image, 
+  editLabel, 
+  deleteLabel,
+  onDelete, 
+  onEdit 
+}) => {
+  return (
+    <Card>
+      <CardHeader>
+        <Avatar src={avatar} alt={username} />
+        <UserInfo>
+          <Username>{username}</Username>
+        </UserInfo>
+      </CardHeader>
+      <Title>{title}</Title>
+      <Description>{description}</Description>
+      {image && <PostImage src={image} alt={title} />}
+      <Actions>
+        <ActionButton onClick={onEdit} aria-label={editLabel}>
+          <FaEdit />
+        </ActionButton>
+        <ActionButton $type="delete" onClick={onDelete} aria-label={deleteLabel}>
+          <FaTrash />
+        </ActionButton>
+      </Actions>
+    </Card>
+  );
+};
 export default PostCard;

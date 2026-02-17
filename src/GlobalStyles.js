@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-
 const GlobalStyles = createGlobalStyle`
   /* Reset and Base Styles */
   * {
@@ -9,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    background-color: #F0F4F8; /* Very light cool gray/blue hint */
+    background-color: #F0F4F8;
     color: #333;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
@@ -27,5 +26,4 @@ const GlobalStyles = createGlobalStyle`
     font-family: inherit;
   }
 `;
-
 export default GlobalStyles;
