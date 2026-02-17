@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-
 const NavContainer = styled.nav`
   background-color: white;
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   height: fit-content;
-  border-left: 5px solid #004E98; /* Blue accent */
+  border-left: 5px solid #004E98;
 `;
 const NavList = styled.ul`
   display: flex;
@@ -21,8 +20,8 @@ const NavItem = styled.li`
   color: #333;
   transition: all 0.2s;
   &:hover {
-    background-color: #DA291C; /* Red */
-    color: #FFD700; /* Yellow */
+    background-color: #DA291C;
+    color: #FFD700;
     transform: translateX(5px);
   }
 `;
@@ -37,5 +36,4 @@ const LeftNavigation = ({ links }) => {
     </NavContainer>
   );
 };
-
 export default LeftNavigation;
