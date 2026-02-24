@@ -3,11 +3,13 @@
 **Assignments:**
 - 01_Components (Reusable Component Library)
 - 02_CRUD_Interface
+- 03_Routing & Hooks (React Router, Hooks, & Recharts)
 
-This project includes two related parts:
+This project includes three related parts:
 
 1. A reusable component library built with CSS-in-JS (`styled-components`) and dynamic props.
 2. A CRUD interface implementation built on top of the component structure.
+3. A multi-page routed application using React Router, Functional Hooks, and Recharts.
 
 ---
 
@@ -58,6 +60,22 @@ Built using the reusable components from 01_Components.
 
 - **02_CRUD_Interface**
   Submission branch for the CRUD interface implementation.
+
+- **03_Routing & Hooks**
+  Submission branch for the Route navigation, Hooks, and Recharts feature implementations.
+
+---
+
+## 03_Routing & Hooks
+
+Implements React Router navigation, transitions Class components to Functional Components using React Hooks, and adds data visualization through Recharts.
+
+### Features
+
+- Uses `react-router-dom` to establish a routing shell navigating between `/Dashboard`, `/Newsfeed`, `/Messages`, `/Settings`, and `/Profile` views.
+- Refactored older Class-components into Functional-components to implement `useState` and `useEffect` Hooks.
+- Embedded data visualization `<BarChart>` and `<LineChart>` elements to the Dashboard via the `recharts` library.
+- Completely strictly styled utilizing CSS-in-JS `styled-components` without any dependency on standard raw `.css` files.
 
 ---
 

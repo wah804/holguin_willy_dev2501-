@@ -56,8 +56,8 @@ class Form extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: '',
-      description: ''
+      title: props.postToEdit ? props.postToEdit.title : '',
+      description: props.postToEdit ? props.postToEdit.description : ''
     };
   }
   componentDidUpdate(prevProps) {
@@ -81,8 +81,8 @@ class Form extends React.Component {
       this.props.onSubmit({
         title,
         description,
-        username: "Willy Holguin", 
-        avatar: this.props.avatar, 
+        username: this.props.postToEdit ? this.props.postToEdit.username : "Willy Holguin", 
+        avatar: this.props.postToEdit ? this.props.postToEdit.avatar : this.props.avatar, 
         image: this.props.postToEdit ? this.props.postToEdit.image : null
       });
     }
@@ -97,7 +97,7 @@ class Form extends React.Component {
       <FormContainer>
         <FormTitle>{formTitle}</FormTitle>
         <InputGroup>
-          {avatar && <AvatarPreview src={avatar} alt="User" />}
+          {avatar && <AvatarPreview src={postToEdit ? postToEdit.avatar : avatar} alt="User" />}
           <StyledInput 
             type="text" 
             name="title"

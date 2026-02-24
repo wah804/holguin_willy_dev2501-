@@ -12,25 +12,45 @@ const NavList = styled.ul`
   flex-direction: column;
   gap: 10px;
 `;
-const NavItem = styled.li`
+import { NavLink } from 'react-router-dom';
+
+const NavItem = styled(NavLink)`
   padding: 10px 15px;
   border-radius: 5px;
   cursor: pointer;
   font-weight: 500;
   color: #333;
   transition: all 0.2s;
+  text-decoration: none;
+  display: block;
+  
+  &.active {
+    background-color: #DA291C;
+    color: #FFD700;
+    transform: translateX(5px);
+  }
+
   &:hover {
     background-color: #DA291C;
     color: #FFD700;
     transform: translateX(5px);
   }
 `;
-const LeftNavigation = ({ links }) => {
+
+const LeftNavigation = () => {
+  const links = [
+    { label: "Dashboard", path: "/Dashboard" },
+    { label: "Newsfeed", path: "/Newsfeed" },
+    { label: "Messages", path: "/Messages" }
+  ];
+
   return (
     <NavContainer>
       <NavList>
         {links.map((link, index) => (
-          <NavItem key={index}>{link}</NavItem>
+          <NavItem key={index} to={link.path}>
+            {link.label}
+          </NavItem>
         ))}
       </NavList>
     </NavContainer>
