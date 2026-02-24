@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import styled from 'styled-components';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import GlobalStyles from './GlobalStyles';
 import Header from './components/Header/Header';
 import LeftNavigation from './components/LeftNavigation/LeftNavigation';
 
-// Import Pages
-import Newsfeed from './pages/Newsfeed';
-import Dashboard from './pages/Dashboard';
-import Messages from './pages/Messages';
-import Settings from './pages/Settings';
-import Profile from './pages/Profile';
+// Lazy-loaded Pages (code-splitting)
+const Newsfeed = lazy(() => import('./pages/Newsfeed'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+const Messages = lazy(() => import('./pages/Messages'));
+const Settings = lazy(() => import('./pages/Settings'));
+const Profile = lazy(() => import('./pages/Profile'));
 
 // Import Images
 import avatarImg from './assets/images/avatar.jpg';
@@ -74,14 +74,16 @@ const App = () => {
             <LeftNavigation />
           </Column>
           <Column>
-            <Routes>
-              <Route path="/" element={<Navigate to="/Newsfeed" replace />} />
-              <Route path="/Dashboard" element={<Dashboard />} />
-              <Route path="/Newsfeed" element={<Newsfeed />} />
-              <Route path="/Messages" element={<Messages />} />
-              <Route path="/Settings" element={<Settings />} />
-              <Route path="/Profile" element={<Profile />} />
-            </Routes>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Routes>
+                <Route path="/" element={<Navigate to="/Newsfeed" replace />} />
+                <Route path="/Dashboard" element={<Dashboard />} />
+                <Route path="/Newsfeed" element={<Newsfeed />} />
+                <Route path="/Messages" element={<Messages />} />
+                <Route path="/Settings" element={<Settings />} />
+                <Route path="/Profile" element={<Profile />} />
+              </Routes>
+            </Suspense>
           </Column>
         </MainContent>
       </AppContainer>
