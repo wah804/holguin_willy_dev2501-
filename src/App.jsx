@@ -11,6 +11,7 @@ import Dashboard from './pages/Dashboard';
 import Messages from './pages/Messages';
 import Settings from './pages/Settings';
 import Profile from './pages/Profile';
+import UserProfile from './pages/UserProfile';
 
 // Import Images
 import avatarImg from './assets/images/avatar.jpg';
@@ -81,6 +82,7 @@ const App = () => {
               <Route path="/Messages" element={<Messages />} />
               <Route path="/Settings" element={<Settings />} />
               <Route path="/Profile" element={<Profile />} />
+              <Route path="/UserProfile" element={<UserProfile />} />
             </Routes>
           </Column>
         </MainContent>

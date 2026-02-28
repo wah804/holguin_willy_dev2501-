@@ -4,12 +4,14 @@
 - 01_Components (Reusable Component Library)
 - 02_CRUD_Interface
 - 03_Routing & Hooks (React Router, Hooks, & Recharts)
+- 04_UserProfile (API, Hooks, User Profile)
 
-This project includes three related parts:
+This project includes four related parts:
 
 1. A reusable component library built with CSS-in-JS (`styled-components`) and dynamic props.
 2. A CRUD interface implementation built on top of the component structure.
 3. A multi-page routed application using React Router, Functional Hooks, and Recharts.
+4. A dynamic User Profile built with the Random User Generator API and a custom Notifications dropdown feature.
 
 ---
 
@@ -64,6 +66,9 @@ Built using the reusable components from 01_Components.
 - **03_Routing & Hooks**
   Submission branch for the Route navigation, Hooks, and Recharts feature implementations.
 
+- **04_API**
+  Submission branch for the final React API integration and user profile.
+
 ---
 
 ## 03_Routing & Hooks
@@ -79,9 +84,23 @@ Implements React Router navigation, transitions Class components to Functional C
 
 ---
 
+## 04_UserProfile (API Integration)
+
+Implements a dynamic user profile view using React Hooks and the Random User Generator API.
+
+### Features
+
+- Explored short-term memory through Component State (`useState`).
+- Incorporated `useEffect` combined with `async/await` and `fetch` to retrieve API data.
+- Built the new `/UserProfile` route connecting the Header Avatar to dynamic user information (first name, last name, phone, address, location, credentials, etc.)
+- Added a Custom Notifications Drop-down menu in the `Header.jsx` mapped to a new Notification Bell icon using React Hooks.
+
+---
+
 ## How to Run
 
 ### 1) Install dependencies
 
 ```bash
 npm install
+
